@@ -276,8 +276,8 @@ class AuthenticatedGenerator < Rails::Generator::NamedBase
         puts "- Install the acts_as_state_machine plugin:"
         puts "    svn export http://elitists.textdriven.com/svn/plugins/acts_as_state_machine/trunk vendor/plugins/acts_as_state_machine"
       elsif options[:workflow]
-        puts "- Install the workflow plugin:"
-        puts "    script/plugin install git://github.com/ryan-allen/workflow.git"
+        puts "- Install the (tweaked) workflow plugin:"
+        puts "    script/plugin install git://github.com/thewebfellas/workflow.git"
       end
       puts "- Add routes to these resources. In config/routes.rb, insert routes like:"
       puts %(    map.signup '/signup', :controller => '#{model_controller_file_name}', :action => 'new')
