@@ -6,6 +6,8 @@ class <%= class_name %> < ActiveRecord::Base
   include Authentication::ByCookieToken
 <% if options[:aasm] -%>
   include Authorization::AasmRoles
+<% elsif options[:workflow] -%>
+  include Authorization::WorkflowRoles
 <% elsif options[:stateful] -%>
   include Authorization::StatefulRoles<% end %>
   validates_presence_of     :login

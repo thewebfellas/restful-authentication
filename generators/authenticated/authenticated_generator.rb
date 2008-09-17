@@ -275,6 +275,9 @@ class AuthenticatedGenerator < Rails::Generator::NamedBase
       elsif options[:stateful]
         puts "- Install the acts_as_state_machine plugin:"
         puts "    svn export http://elitists.textdriven.com/svn/plugins/acts_as_state_machine/trunk vendor/plugins/acts_as_state_machine"
+      elsif options[:workflow]
+        puts "- Install the workflow plugin:"
+        puts "    script/plugin install git://github.com/ryan-allen/workflow.git"
       end
       puts "- Add routes to these resources. In config/routes.rb, insert routes like:"
       puts %(    map.signup '/signup', :controller => '#{model_controller_file_name}', :action => 'new')
@@ -392,6 +395,8 @@ protected
       "Use acts_as_state_machine.  Assumes --include-activation") { |v| options[:include_activation] = options[:stateful] = true }
     opt.on("--aasm",
       "Use (gem) aasm.  Assumes --include-activation")            { |v| options[:include_activation] = options[:stateful] = options[:aasm] = true }
+    opt.on("--workflow",
+      "Use (plugin) workflow.  Assumes --include-activation")     { |v| options[:include_activation] = options[:stateful] = options[:workflow] = true }
     opt.on("--rspec",
       "Force rspec mode (checks for RAILS_ROOT/spec by default)") { |v| options[:rspec] = true }
     opt.on("--no-rspec",

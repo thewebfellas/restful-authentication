@@ -145,6 +145,8 @@ To use the generator:
   but new installs should probably run with @--aasm@ instead.)
 
 * --aasm: Works the same as stateful but uses the "updated aasm gem":http://github.com/rubyist/aasm/tree/master
+
+* --workflow: Works the same as stateful but uses the "tweaked workflow plugin":http://github.com/thewebfellas/workflow/tree/master
   
 * --rspec: Generate RSpec tests and Stories in place of standard rails tests.
   This requires the
