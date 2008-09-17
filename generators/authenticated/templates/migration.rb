@@ -13,8 +13,9 @@ class <%= migration_name %> < ActiveRecord::Migration
 <% if options[:include_activation] -%>
       t.column :activation_code,           :string, :limit => 40
       t.column :activated_at,              :datetime<% end %>
-<% if options[:stateful] -%>
-      t.column :state,                     :string, :null => :no, :default => 'passive'
+<% if options[:stateful] -%><% if options[:workflow] -%>
+      t.column :workflow_state,            :string, :null => :no, :default => 'passive'<% else -%>
+      t.column :state,                     :string, :null => :no, :default => 'passive'<% end %>
       t.column :deleted_at,                :datetime<% end %>
     end
     add_index :<%= table_name %>, :login, :unique => true
